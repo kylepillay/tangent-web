@@ -5,10 +5,10 @@ import {
   getPendingSelector,
   getEmployeeSelector,
   getErrorSelector,
-} from "./modules/Employees/Actions/actions.selectors";
-import { fetchEmployeeRequest } from "./modules/Employees/Actions/index";
+} from "../Actions/actions.selectors";
+import { fetchEmployeeRequest } from "../Actions/index";
 
-const App = () => {
+const Employee = () => {
   const dispatch = useDispatch();
   const pending = useSelector(getPendingSelector);
   const employee = useSelector(getEmployeeSelector);
@@ -31,4 +31,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Employee;
