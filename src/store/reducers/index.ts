@@ -1,8 +1,18 @@
 import { combineReducers } from 'redux';
-import employeeReducer from '../../modules/Employees/Reducers'
+import { 
+    employeeReducer, 
+    employeesReducer, 
+    createEmployeeReducer, 
+    updateEmployeeReducer, 
+    DeleteEmployeeReducer 
+} from '../../modules/Employees/Reducers'
 
 const rootReducer = combineReducers({
-    employee: employeeReducer
+    employee: employeeReducer,
+    employees: employeesReducer,
+    createEmployee: createEmployeeReducer,
+    updateEmployee: updateEmployeeReducer,
+    deleteEmployee: DeleteEmployeeReducer
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

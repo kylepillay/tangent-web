@@ -1,6 +1,6 @@
 import { createSelector } from "reselect";
 
-import { AppState } from "../../../store/reducers";
+import { AppState } from "../../../../store/reducers";
 
 const getPending = (state: AppState) => state.employee.pending;
 

@@ -1,0 +1,4 @@
+export const UPDATE_EMPLOYEE = 'employees/UPDATE_EMPLOYEE'
+export const UPDATE_EMPLOYEE_COMPLETE = 'employees/UPDATE_EMPLOYEE_COMPLETE'
+export const UPDATE_EMPLOYEE_FAILED = 'employees/UPDATE_EMPLOYEE_FAILED'
+export const CLEAR_EMPLOYEE = 'employees/CLEAR_EMPLOYEE'

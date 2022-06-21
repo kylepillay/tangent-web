@@ -3,6 +3,16 @@ import {
     FETCH_EMPLOYEE_COMPLETE,
     FETCH_EMPLOYEE_FAILED,
   } from "./actions.constants";
+
+  export interface ISeniorityRating {
+    title: string;
+  }
+
+  export interface ISkill {
+    skill: string;
+    years_experience: number
+    seniority_rating: ISeniorityRating
+  }
   
   export interface IEmployee {
     first_name: string;
@@ -14,6 +24,7 @@ import {
     city: String;
     postal_code: String;
     country: string
+    skills?: ISkill[]
   }
   
   export interface EmployeeState {

@@ -1,0 +1,4 @@
+export const FETCH_EMPLOYEES = 'employees/FETCH_EMPLOYEES'
+export const FETCH_EMPLOYEES_COMPLETE = 'employees/FETCH_EMPLOYEES_COMPLETE'
+export const FETCH_EMPLOYEES_FAILED = 'employees/FETCH_EMPLOYEES_FAILED'
+export const CLEAR_EMPLOYEES = 'employees/CLEAR_EMPLOYEES'

@@ -1,0 +1,4 @@
+export const DELETE_EMPLOYEE = 'employees/DELETE_EMPLOYEE'
+export const DELETE_EMPLOYEE_COMPLETE = 'employees/DELETE_EMPLOYEE_COMPLETE'
+export const DELETE_EMPLOYEE_FAILED = 'employees/DELETE_EMPLOYEE_FAILED'
+export const CLEAR_EMPLOYEE = 'employees/CLEAR_EMPLOYEE'

@@ -3,21 +3,19 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {
   getPendingSelector,
-  getEmployeeSelector,
+  getEmployeesSelector,
   getErrorSelector,
-} from "../Actions/actions.selectors";
-import { fetchEmployeeRequest } from "../Actions/index";
+} from "../Actions/FetchEmployees/actions.selectors";
+import { fetchEmployeesRequest } from "../Actions/FetchEmployees/index";
 
 const Employee = () => {
   const dispatch = useDispatch();
   const pending = useSelector(getPendingSelector);
-  const employee = useSelector(getEmployeeSelector);
+  const employees = useSelector(getEmployeesSelector);
   const error = useSelector(getErrorSelector);
 
   useEffect(() => {
-    dispatch(fetchEmployeeRequest({
-      employeeId: 5
-    }));
+    dispatch(fetchEmployeesRequest());
   }, []);
 
   return (
@@ -26,7 +24,7 @@ const Employee = () => {
         <div>Loading...</div>
       ) : error ? (
         <div>Error</div>
-      ) : JSON.stringify(employee)}
+      ) : JSON.stringify(employees)}
     </div>
   );
 };
