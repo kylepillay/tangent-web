@@ -30,10 +30,7 @@ const FormModal: React.FC<IFormModalProps> = ({ employee, seniorityRatings }: IF
     const [mappedRatings, setMappedRatings] = useState<DefaultOptionType[] | undefined>()
 
     const createEmployeeCompleted = useSelector(createEmployeeSelector);
-    const createEmployError = useSelector(createErrorSelector);
-
     const updateEmployeeCompleted = useSelector(updateEmployeeSelector);
-    const updateEmployError = useSelector(updateErrorSelector);
 
     useEffect(() => {
         const tempMappedRatings = seniorityRatings.map(

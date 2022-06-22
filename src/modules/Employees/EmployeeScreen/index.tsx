@@ -31,8 +31,6 @@ import FormModal from "./FormModal";
 import { getSeniorityRatingsSelector } from "../Actions/FetchSeniorityRatings/actions.selectors";
 import { fetchSeniorityRatingsRequest } from "../Actions/FetchSeniorityRatings";
 import { deleteEmployeeRequest } from "../Actions/DeleteEmployee";
-import { filterEmployeesSuccess } from "../Actions/FetchEmployees";
-
 
 const { Option } = Select;
 
@@ -97,23 +95,14 @@ const Employee = () => {
   const getEmployeesPending = useSelector(getEmployeesPendingSelector);
   const employees = useSelector(getEmployeesSelector);
   const getEmployeesError = useSelector(getEmployeesErrorSelector);
-
   const createEmployeePending = useSelector(createPendingSelector);
   const createEmployeeCompleted = useSelector(createEmployeeSelector);
-  const createEmployError = useSelector(createErrorSelector);
-
   const updateEmployeePending = useSelector(updatePendingSelector);
   const updateEmployeeCompleted = useSelector(updateEmployeeSelector);
-  const updateEmployError = useSelector(updateErrorSelector);
-
-  const deleteEmployeePending = useSelector(deletePendingSelector);
   const deleteEmployeeCompleted = useSelector(deleteEmployeeSelector);
-  const deleteEmployError = useSelector(deleteErrorSelector);
-
   const seniorityRatings = useSelector(getSeniorityRatingsSelector);
 
   const [visible, setVisible] = useState(false);
-  const [filteredEmployees, setFilteredEmployees] = useState(employees);
   const [filterValue, setFilterValue] = useState('first_name');
   const [currentEmployee, setCurrentEmployee] = useState<IEmployee>(employeeInitialState);
 
@@ -159,7 +148,11 @@ const Employee = () => {
   }, [])
 
   const handleChangeSearch = useCallback((e: any) => {
-    dispatch(filterEmployeesRequest({ filterValue, searchString: e.target.value} ))
+    if (e.target.value.length === 0) {
+      dispatch(fetchEmployeesRequest());
+    } else {
+      dispatch(filterEmployeesRequest({ filterValue, searchString: e.target.value} ))
+    }
   }, [filterValue, employees])
 
   return (
