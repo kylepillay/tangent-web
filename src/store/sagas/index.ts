@@ -5,7 +5,8 @@ import {
     employeesSaga, 
     createEmployeeSaga, 
     updateEmployeeSaga, 
-    deleteEmployeeSaga 
+    deleteEmployeeSaga ,
+    seniorityRatingsSaga
 } from "../../modules/Employees/Sagas";
 
 function* rootSaga() {
@@ -14,7 +15,8 @@ function* rootSaga() {
     fork(employeesSaga), 
     fork(createEmployeeSaga), 
     fork(updateEmployeeSaga), 
-    fork(deleteEmployeeSaga) 
+    fork(deleteEmployeeSaga),
+    fork(seniorityRatingsSaga)
 ]);
 }
  

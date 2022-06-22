@@ -1,3 +1,4 @@
+import { IEmployee } from "../FetchEmployee/actions.types";
 import {
     UPDATE_EMPLOYEE,
     UPDATE_EMPLOYEE_COMPLETE,
@@ -22,6 +23,7 @@ import {
   
   export interface UpdateEmployeeRequestPayload {
     employeeId: number;
+    employee: IEmployee
   }
 
   export interface UpdateEmployeeSuccessPayload {

@@ -10,7 +10,7 @@ import { CreateEmployeeRequest } from "../Actions/CreateEmployee/actions.types";
 */
 function* createEmployeeSaga(createEmployeeRequest: CreateEmployeeRequest): any {
   try {
-    const response = yield call(createEmployee, createEmployeeRequest.payload.employeeId);
+    const response = yield call(createEmployee, createEmployeeRequest.payload.employee);
     yield put(
       createEmployeeSuccess({
         response: response.data,

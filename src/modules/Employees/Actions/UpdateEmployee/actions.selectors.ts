@@ -2,17 +2,17 @@ import { createSelector } from "reselect";
 
 import { AppState } from "../../../../store/reducers";
 
-const getPending = (state: AppState) => state.employee.pending;
+const updatePending = (state: AppState) => state.updateEmployee.pending;
 
-const getEmployee = (state: AppState) => state.employee.employee;
+const updateEmployee = (state: AppState) => state.updateEmployee.response;
 
-const getError = (state: AppState) => state.employee.error;
+const updateError = (state: AppState) => state.updateEmployee.error;
 
-export const getEmployeeSelector = createSelector(getEmployee, (employee) => employee);
+export const updateEmployeeSelector = createSelector(updateEmployee, (response) => response);
 
-export const getPendingSelector = createSelector(
-  getPending,
+export const updatePendingSelector = createSelector(
+  updatePending,
   (pending) => pending
 );
 
-export const getErrorSelector = createSelector(getError, (error) => error);
+export const updateErrorSelector = createSelector(updateError, (error) => error);

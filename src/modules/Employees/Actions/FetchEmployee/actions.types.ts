@@ -5,21 +5,25 @@ import {
   } from "./actions.constants";
 
   export interface ISeniorityRating {
+    id: number;
     title: string;
   }
 
   export interface ISkill {
+    id: number;
     skill: string;
     years_experience: number
     seniority_rating: ISeniorityRating
   }
   
   export interface IEmployee {
+    id: number;
+    employee_id: string;
     first_name: string;
     last_name: string;
     contact_number: string;
     email_address: string;
-    date_of_birth: Date;
+    date_of_birth: string;
     street_address: String;
     city: String;
     postal_code: String;

@@ -10,7 +10,8 @@ import { UpdateEmployeeRequest } from "../Actions/UpdateEmployee/actions.types";
 */
 function* updateEmployeeSaga(updateEmployeeRequest: UpdateEmployeeRequest): any {
   try {
-    const response = yield call(updateEmployee, updateEmployeeRequest.payload.employeeId);
+    const response = yield call(updateEmployee, updateEmployeeRequest.payload.employeeId, updateEmployeeRequest.payload.employee);
+    console.log(response)
     yield put(
       updateEmployeeSuccess({
         response: response.data,

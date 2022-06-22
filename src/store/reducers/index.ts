@@ -4,7 +4,8 @@ import {
     employeesReducer, 
     createEmployeeReducer, 
     updateEmployeeReducer, 
-    DeleteEmployeeReducer 
+    DeleteEmployeeReducer,
+    SeniorirtyRatingsReducer
 } from '../../modules/Employees/Reducers'
 
 const rootReducer = combineReducers({
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     employees: employeesReducer,
     createEmployee: createEmployeeReducer,
     updateEmployee: updateEmployeeReducer,
-    deleteEmployee: DeleteEmployeeReducer
+    deleteEmployee: DeleteEmployeeReducer,
+    seniorityRatings: SeniorirtyRatingsReducer
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

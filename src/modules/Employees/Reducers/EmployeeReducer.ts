@@ -9,15 +9,18 @@ import {
   const initialState: EmployeeState = {
     pending: false,
     employee: {
+        id: 0,
+        employee_id: '',
         first_name:'',
         last_name: '',
         contact_number: '',
         email_address: '',
-        date_of_birth: new Date,
+        date_of_birth: '',
         street_address: '',
         city: '',
         postal_code: '',
-        country: ''
+        country: '',
+        skills: []
     },
     error: null,
   };
