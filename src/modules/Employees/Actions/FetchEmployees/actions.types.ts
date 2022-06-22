@@ -3,6 +3,8 @@ import {
     FETCH_EMPLOYEES,
     FETCH_EMPLOYEES_COMPLETE,
     FETCH_EMPLOYEES_FAILED,
+    SEARCH_EMPLOYEES,
+    SEARCH_EMPLOYEES_COMPLETE
   } from "./actions.constants";
   
   export interface EmployeesState {
@@ -15,6 +17,15 @@ import {
   export interface FetchEmployeesSuccessPayload {
     employees: IEmployee[];
   }
+
+  export interface FilterEmployeesRequestPayload {
+    filterValue: string;
+    searchString: string
+  }
+
+  export interface FilterEmployeesSuccessPayload {
+    employees: IEmployee[];
+  }
   
   export interface FetchEmployeesFailurePayload {
     error: string;
@@ -23,10 +34,20 @@ import {
   export interface FetchEmployeesRequest {
     type: typeof FETCH_EMPLOYEES;
   }
+
+  export interface FilterEmployeesRequest {
+    type: typeof SEARCH_EMPLOYEES;
+    payload: FilterEmployeesRequestPayload
+  }
   
   export type FetchEmployeesSuccess = {
     type: typeof FETCH_EMPLOYEES_COMPLETE;
     payload: FetchEmployeesSuccessPayload;
+  };
+
+  export type FilterEmployeesSuccess = {
+    type: typeof SEARCH_EMPLOYEES_COMPLETE;
+    payload: FilterEmployeesSuccessPayload;
   };
   
   export type FetchEmployeesFailure = {
@@ -37,4 +58,5 @@ import {
   export type EmployeesActions =
     | FetchEmployeesRequest
     | FetchEmployeesSuccess
-    | FetchEmployeesFailure;
+    | FetchEmployeesFailure
+    | FilterEmployeesRequest

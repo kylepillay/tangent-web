@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { DatePicker, Input, Form, Space, Button, Select } from 'antd';
+import { DatePicker, Input, Form, Space, Button, Select, message } from 'antd';
 import moment from 'moment';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { IEmployee } from '../Actions/FetchEmployee/actions.types';
@@ -20,10 +20,8 @@ import { updateEmployeeRequest } from '../Actions/UpdateEmployee';
 
 interface IFormModalProps {
     employee?: IEmployee,
-    seniorityRatings: ISeniorityRating[]
+    seniorityRatings: ISeniorityRating[],
 }
-
-const { Option } = Select;
 
 const FormModal: React.FC<IFormModalProps> = ({ employee, seniorityRatings }: IFormModalProps) => {
 
@@ -60,19 +58,24 @@ const FormModal: React.FC<IFormModalProps> = ({ employee, seniorityRatings }: IF
             }));
         } else {
             dispatch(createEmployeeRequest({
-                employee: { ...values, date_of_birth: moment(values.date_of_birth).format('YYYY-MM-DD')}
+                employee: { ...values, date_of_birth: moment(values.date_of_birth).format('YYYY-MM-DD') }
             }));
         }
+
+        form.resetFields();
         
     }, [employee]);
 
     useEffect(() => {
         if (createEmployeeCompleted || updateEmployeeCompleted) {
             dispatch(fetchEmployeesRequest());
+            message.success(`Employee ${createEmployeeCompleted ? 'created' : 'updated'} successfully.`) 
         }
     }, [createEmployeeCompleted, updateEmployeeCompleted])
 
     const onFinishFailed = (errorInfo: any) => {
+        form.resetFields();
+        message.error('Whoops, something went wrong')
         console.log('Failed:', errorInfo);
     };
 

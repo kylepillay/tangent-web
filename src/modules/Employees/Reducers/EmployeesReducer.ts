@@ -1,7 +1,9 @@
+import _ from 'lodash';
 import {
     FETCH_EMPLOYEES,
     FETCH_EMPLOYEES_COMPLETE,
     FETCH_EMPLOYEES_FAILED,
+    SEARCH_EMPLOYEES,
   } from "../Actions/FetchEmployees/actions.constants";
   
   import { EmployeesActions, EmployeesState } from "../Actions/FetchEmployees/actions.types";
@@ -14,6 +16,13 @@ import {
   
   export default (state = initialState, action: EmployeesActions): EmployeesState => {
     switch (action.type) {
+      case SEARCH_EMPLOYEES:
+        return {
+          ...state,
+          employees: _.filter(state.employees as any, function(o) { 
+            return o[action.payload.filterValue].includes(action.payload.searchString); 
+         }),
+        };
       case FETCH_EMPLOYEES:
         return {
           ...state,
